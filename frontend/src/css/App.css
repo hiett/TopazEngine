@@ -1,0 +1,118 @@
+:root {
+    --top-height: 50px;
+    --left-bar-width: 200px;
+}
+
+.App {
+    background-color: #ecf0f1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+
+.TopCrossover {
+    width: var(--left-bar-width);
+    height: 100%;
+    float: left;
+    background-color: #2c3e50;
+    text-align: center;
+    color: white;
+    display: table;
+}
+
+.TopCrossover h2 {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.TopBar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    background-color: white;
+}
+
+.LeftBar {
+    width: var(--left-bar-width);
+    background-color: #2c3e50;
+    height: calc(100% - var(--top-height));
+    position: absolute;
+    left: 0;
+    top: 50px;
+}
+
+.TopBarItem {
+    display: table;
+    height: 100%;
+    float: left;
+    
+    cursor: pointer;
+}
+
+.TopBarItem:hover {
+    background-image: var(--color-fade);
+    color: white;
+}
+
+.TopBarItem p {
+    display: table-cell;
+    vertical-align: middle;
+    /*color: #ecf0f1;*/
+    font-size: 25px;
+    line-height: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.ContentArea {
+    position: absolute;
+    top: var(--top-height);
+    left: var(--left-bar-width);
+    width: calc(100% - var(--left-bar-width));
+    height: calc(100% - var(--top-height));
+}
+
+.NavArea {
+    background-color: white;
+    border-top-color: #ecf0f1;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-bottom-color: #ecf0f1;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    width: 100%;
+    height: 50px;
+}
+
+.NavArea:hover {
+    background-image: var(--color-fade);
+    color: white;
+}
+
+.NavAreaPadding {
+    float: left;
+    height: 100%;
+    width: 5px;
+}
+
+.NavAreaBar {
+    width: 3px;
+    height: 36px;
+    margin-top: 7px;
+    background-image: var(--color-fade);
+}
+
+.NavAreaItem {
+    float: left;
+    display: table;
+    height: 100%;
+    padding-left: 10px;
+}
+
+.NavAreaItem > * {
+    display: table-cell;
+    vertical-align: middle;
+}

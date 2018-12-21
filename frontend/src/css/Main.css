@@ -1,0 +1,16 @@
+.divbackground {
+	background-image: var(--color-fade);
+}
+
+.outlinebackground {
+	background-color: white;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #3498db;
+}
+
+.textbackground {
+	background: var(--color-fade);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

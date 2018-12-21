@@ -1,0 +1,17 @@
+.DashboardItem {
+    background-image: var(--color-fade);
+    border-radius: 5px;
+}
+
+.DashboardItem > h4 {
+    padding-top: 20px;
+}
+
+.DashboardItem > * {
+    padding-left: 20px;
+    color: white;
+}
+
+.DashboardItem > p {
+    padding-bottom: 20px;
+}

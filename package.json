@@ -1,0 +1,23 @@
+{
+  "name": "topaz",
+  "version": "1.0.0",
+  "description": "Topaz Data Engine",
+  "main": "dist/App.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "read-data": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^2.0.7",
+    "nodemon": "^1.18.9"
+  },
+  "scripts": {
+    "build": "babel backend -d dist",
+    "start": "babel-watch backend/App.js",
+    "test": "node dist/App.js"
+  },
+  "author": "Scott Hiett",
+  "license": "ISC"
+}

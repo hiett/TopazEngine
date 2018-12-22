@@ -50,12 +50,14 @@ export default class RequestManager {
                 if(this.reqStorage[dataObject.wantedRequest] === undefined) {
                     socket.emit("RequestResponse", {
                         wantedRequest: dataObject.wantedRequest,
+                        isTest: dataObject.isTest === undefined ? false : dataObject.isTest,
                         error: "That request is not defined."
                     });
                 } else {
                     socket.emit("RequestResponse", {
                         wantedRequest: dataObject.wantedRequest,
-                        data: this.reqStorage[dataObject.wantedRequest].getResponse(dataObject.body)
+                        isTest: dataObject.isTest === undefined ? false : dataObject.isTest,
+                        body: this.reqStorage[dataObject.wantedRequest].getResponse(dataObject.body)
                     });
                 }
             });

@@ -5,6 +5,7 @@ import Navigation from "./Navigation";
 import ClientSocketManager, { createClient } from "./ClientSocketManager";
 
 import "./css/App.css";
+import RequestTester from "./pages/RequestTester";
 
 export default class App extends Component {
     constructor(props) {
@@ -15,8 +16,10 @@ export default class App extends Component {
         createClient();
         console.log("Created client: ", ClientSocketManager.getInstance());
         // ClientSocketManager.getSocket().emit("Hey!");
+    }
 
-        // Some tests of the socket code...
+    componentDidMount() {
+        // Socket code tests.
         let socket = ClientSocketManager.getSocket();
         socket.emit("MakeRequest", {
             wantedRequest: "GetDataset",
@@ -27,6 +30,11 @@ export default class App extends Component {
 
         socket.on("RequestResponse", data => {
             console.log("Got response from server for request. The data is", data);
+
+            if(data.isTest && window.location.pathname === "/tester") {
+                // Send this to the client
+                RequestTester.setCurrentCode(JSON.stringify(data));
+            }
         });
     }
 

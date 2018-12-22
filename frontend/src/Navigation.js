@@ -2,6 +2,7 @@ import React from "react";
 import Dashboard from "./pages/Dashboard";
 import LeftBarItem from "./LeftBarItem";
 import { Route } from "react-router-dom";
+import RequestTester from "./pages/RequestTester";
 
 // Contains more detailed route information
 class RouteWrapper {
@@ -27,7 +28,7 @@ class RouteWrapper {
 let routes = [
     new RouteWrapper("Dashboard", "/", "tachometer-alt", "Home / Dashboard", Dashboard, true),
     new RouteWrapper("About", "/about", "user-circle", "Home / About", () => <p>Hey Welcome to the about page!</p>),
-    new RouteWrapper("Test", "/test", "user-circle", "Home / Test", () => <p>Hey</p>)
+    new RouteWrapper("Tester", "/tester", "vial", "Home / Tester", RequestTester)
 ];
 
 export default class Navigation {

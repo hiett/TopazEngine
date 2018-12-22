@@ -8,7 +8,7 @@ import Navigation from "./Navigation";
 
 import "./css/App.css";
 
-class App extends Component {
+export default class App extends Component {
     render() {
         let routeSwitch = [];
         let leftBarLinks = [];
@@ -28,6 +28,16 @@ class App extends Component {
                     </div>
                     <div className="TopBarItem">
                         <p><i className="fas fa-bars"></i></p>
+                    </div>
+                    <div className="TopBarItem" style={{
+                        float: "right"
+                    }} onClick={() => {
+                        let win = window.open("https://github.com/Sodex234/TopazEngine", "_blank");
+                        win.focus();
+                    }}>
+                        <p style={{
+                            fontSize: 18
+                        }}>View on GitHub</p>
                     </div>
                 </div>
                 
@@ -60,5 +70,3 @@ class App extends Component {
         );
     }
 }
-
-export default App;

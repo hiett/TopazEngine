@@ -9,7 +9,10 @@ export default class GetDataset extends APIRequest {
             });
     }
     
-    getResponse(data) {
-        return {content: "This is some test content.", oldData: data};
+    getResponse(data, callback) {
+        callback({
+            content: "This is some test content.",
+            oldData: data
+        });
     }
 }

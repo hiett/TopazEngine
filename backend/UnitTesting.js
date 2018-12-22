@@ -11,11 +11,11 @@ export default class UnitTesting {
             
             return;
         }
-        
-        let response = app.getInstance().requestManager.reqStorage[reqName].getResponse(dataToParse);
-        
-        logger.log("Data received:");
-        logger.log(response);
-        logger.log("End of " + reqName + " test.");
+
+        app.getInstance().requestManager.reqStorage[reqName].getResponse(dataToParse, returnedData => {
+            logger.log("Data received:");
+            logger.log(returnedData);
+            logger.log("End of " + reqName + " test.");
+        });
     }
 }

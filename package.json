@@ -4,8 +4,10 @@
   "description": "Topaz Data Engine",
   "main": "dist/App.js",
   "dependencies": {
+    "directory-exists": "^2.0.1",
     "express": "^4.16.4",
-    "read-data": "^1.1.0"
+    "read-data": "^1.1.0",
+    "socket.io": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

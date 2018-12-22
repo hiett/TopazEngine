@@ -1,14 +1,35 @@
 import React, { Component } from 'react';
-import { Button } from "reactstrap";
-import User from "./local/User";
-import LeftBarItem from "./LeftBarItem";
 import { BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom';
 import CurrentAccessor from "./shared/CurrentAccessor";
 import Navigation from "./Navigation";
+import ClientSocketManager, { createClient } from "./ClientSocketManager";
 
 import "./css/App.css";
 
 export default class App extends Component {
+    constructor(props) {
+        super(props);
+
+        CurrentAccessor.setIsServer(false);
+
+        createClient();
+        console.log("Created client: ", ClientSocketManager.getInstance());
+        // ClientSocketManager.getSocket().emit("Hey!");
+
+        // Some tests of the socket code...
+        let socket = ClientSocketManager.getSocket();
+        socket.emit("MakeRequest", {
+            wantedRequest: "GetDataset",
+            body: {
+                testKey: "testVal"
+            }
+        });
+
+        socket.on("RequestResponse", data => {
+            console.log("Got response from server for request. The data is", data);
+        });
+    }
+
     render() {
         let routeSwitch = [];
         let leftBarLinks = [];

@@ -1,3 +1,5 @@
+/* eslint-disable react-in-jsx-scope */
+
 let isServer = false;
 let dataSaver = null;
 

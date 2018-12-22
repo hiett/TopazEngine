@@ -15,7 +15,7 @@ export default class Dataset {
     }
     
     addBuiltDatapoint(dataPoint) {
-        this.dataPoints[deltaTime]
+        this.dataPoints[dataPoint.deltaTime] = dataPoint;
     }
     
     pushChangedToDatabase() {

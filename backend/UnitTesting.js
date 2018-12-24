@@ -12,7 +12,7 @@ export default class UnitTesting {
             return;
         }
 
-        app.getInstance().requestManager.reqStorage[reqName].getResponse(dataToParse, returnedData => {
+        app.getInstance().requestManager.reqStorage[reqName].getResponse(dataToParse).then(returnedData => {
             logger.log("Data received:");
             logger.log(returnedData);
             logger.log("End of " + reqName + " test.");

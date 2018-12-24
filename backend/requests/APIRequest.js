@@ -8,7 +8,7 @@ export default class APIRequest {
     }
     
     // To be extended on by children
-    getResponse(requestDataObject, dataCallback) {
+    async getResponse(requestDataObject) {
         logger.log("Call was made to APIRequest#getResponse without providing override! Null was returned!");
 
         return null;

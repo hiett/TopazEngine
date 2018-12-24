@@ -9,10 +9,10 @@ export default class GetDataset extends APIRequest {
             });
     }
     
-    getResponse(data, callback) {
-        callback({
+    async getResponse(data) {
+        return {
             content: "This is some test content.",
             oldData: data
-        });
+        };
     }
 }

@@ -1,4 +1,7 @@
 // Interface for saving data.
 export default class DataSaver {
-    saveDataset(dataset, callback) {}
+    saveDataset(dataset) {}
+    updateDataset(dataset) {}
+    datasetExists(id) {}
+    getDatasetCount(){}
 }

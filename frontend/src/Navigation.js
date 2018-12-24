@@ -3,6 +3,7 @@ import Dashboard from "./pages/Dashboard";
 import LeftBarItem from "./LeftBarItem";
 import { Route } from "react-router-dom";
 import RequestTester from "./pages/RequestTester";
+import About from "./pages/About";
 
 // Contains more detailed route information
 class RouteWrapper {
@@ -27,7 +28,7 @@ class RouteWrapper {
 // Store these as a static instance, this class is simply a wrapper!
 let routes = [
     new RouteWrapper("Dashboard", "/", "tachometer-alt", "Home / Dashboard", Dashboard, true),
-    new RouteWrapper("About", "/about", "user-circle", "Home / About", () => <p>Hey Welcome to the about page!</p>),
+    new RouteWrapper("About", "/about", "user-circle", "Home / About", About),
     new RouteWrapper("Tester", "/tester", "vial", "Home / Tester", RequestTester)
 ];
 

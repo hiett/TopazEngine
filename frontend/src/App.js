@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom';
 import CurrentAccessor from "./shared/CurrentAccessor";
 import Navigation from "./Navigation";
 import ClientSocketManager, { createClient } from "./ClientSocketManager";
-
 import "./css/App.css";
 import RequestTester from "./pages/RequestTester";
 

@@ -1,4 +1,5 @@
 import APIRequest from "./APIRequest";
+import CurrentAccessor from "./../../frontend/src/shared/CurrentAccessor";
 
 export default class CreateDataset extends APIRequest {
     constructor() {
@@ -10,9 +11,13 @@ export default class CreateDataset extends APIRequest {
             });
     }
 
-    getResponse(data, callback) {
-        callback({
-            dataSetId: "123321"
-        });
+    async getResponse(data) {
+        const currentDataSaver = CurrentAccessor.getDataSaver();
+
+        let amount = await currentDataSaver.getDatasetCount();
+
+        return {
+            datasetId: amount + ""
+        };
     }
 }

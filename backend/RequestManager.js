@@ -31,7 +31,7 @@ export default class RequestManager {
                 return;
             }
 
-            this.reqStorage[wantedReq].getResponse(req.body, responseData => res.json(responseData));
+            this.reqStorage[wantedReq].getResponse(req.body).then(responseData => res.json(responseData));
         });
 
         this.io.on("connection", socket => {
@@ -54,7 +54,7 @@ export default class RequestManager {
                         error: "That request is not defined."
                     });
                 } else {
-                    this.reqStorage[dataObject.wantedRequest].getResponse(dataObject.body, responseData => {
+                    this.reqStorage[dataObject.wantedRequest].getResponse(dataObject.body).then(responseData => {
                         socket.emit("RequestResponse", {
                             wantedRequest: dataObject.wantedRequest,
                             isTest: dataObject.isTest === undefined ? false : dataObject.isTest,

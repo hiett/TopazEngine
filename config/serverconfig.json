@@ -1,0 +1,5 @@
+{
+  "port": 8081,
+  "mongoHost": "localhost",
+  "mongoPort": 27017
+}

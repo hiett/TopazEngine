@@ -74,9 +74,11 @@ export default class ServerDataSaver extends DataSaver {
     }
 
     async datasetExists(id) {
-        this.datasetCollection.findOne({id: id}).then(obj => {
-            Promise.resolve(obj !== null);
-        });
+        return await this.getDataset(id) !== null;
+    }
+
+    async getDataset(id) {
+        return await this.datasetCollection.findOne({id: id});
     }
 
     async getDatasetCount() {

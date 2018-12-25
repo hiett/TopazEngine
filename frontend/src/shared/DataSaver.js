@@ -3,5 +3,6 @@ export default class DataSaver {
     saveDataset(dataset) {}
     updateDataset(dataset) {}
     datasetExists(id) {}
-    getDatasetCount(){}
+    getDatasetCount() {}
+    getDataset(id) {}
 }

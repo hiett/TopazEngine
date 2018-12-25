@@ -6,8 +6,14 @@ export default class CreateDataset extends APIRequest {
         super("Creates a Dataset.",
             "Creates a blank Dataset and returns the DataSetId.",
             {
-                "time": "The time that the dataset is created, and that offsets should count from.",
-                "description": "A description of what the data is for."
+                time: {
+                    critical: false,
+                    description: "The time that the dataset is created, and that offsets should count from."
+                },
+                description: {
+                    critical: false,
+                    description: "A description of what the data is for."
+                }
             });
     }
 

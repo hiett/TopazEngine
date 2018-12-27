@@ -80,6 +80,9 @@ export default class RequestManager {
             if(data[header] === undefined && wantedReq.headerData[header].critical) {
                 // This header has not been set.
                 errors.push("Header " + header + " was not set. This header is " + wantedReq.headerData[header].description);
+            } else if (data[header] === undefined) {
+                // Push the default value
+                data[header] = wantedReq.headerData[header].fallbackValue();
             }
         });
 

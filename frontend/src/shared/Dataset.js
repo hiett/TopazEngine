@@ -3,7 +3,7 @@ import CurrentAccessor from "./CurrentAccessor";
 
 export default class Dataset {
     constructor(id, time, dataPoints, description) {
-        this.lastDatapointId = -1;
+        // this.lastDatapointId = -1;
         this.id = id;
         this.dataPoints = dataPoints;
         this.time = time;

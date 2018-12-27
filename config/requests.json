@@ -1,6 +1,7 @@
 {
     "data": [
         "GetDataset",
-        "CreateDataset"
+        "CreateDataset",
+        "GetRequestInfo"
     ]
 }

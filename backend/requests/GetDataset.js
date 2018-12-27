@@ -14,7 +14,7 @@ export default class GetDataset extends APIRequest {
     }
     
     async getResponse(data) {
-        let dataset = await CurrentAccessor.getDataSaver().getDataset(data.id);
+        let dataset = await CurrentAccessor.getDataSaver().getDataset(parseInt(data.id));
 
         return {
             exists: dataset !== null,

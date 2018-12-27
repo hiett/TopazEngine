@@ -45,7 +45,7 @@ export default class ServerDataSaver extends DataSaver {
             return;
         }
 
-        this.datasetCollection.insert(dataset, (err, res) => {
+        this.datasetCollection.insertOne(dataset, (err, res) => {
             if(err) throw err;
 
             logger.log("Inserted dataset " + dataset.id + ".");
@@ -82,6 +82,6 @@ export default class ServerDataSaver extends DataSaver {
     }
 
     async getDatasetCount() {
-        return await this.datasetCollection.count();
+        return await this.datasetCollection.countDocuments();
     }
 }

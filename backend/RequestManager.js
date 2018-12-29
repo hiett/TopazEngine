@@ -46,15 +46,27 @@ export default class RequestManager {
                     dataObject = {}; // Stop erroring!
                 }
 
+                // Check if the request has a set unique id. It requires this for sockets so that we can respond with
+                // the relevent data to the request since it's mostly async.
+                if(dataObject.requestId === undefined) {
+                    socket.emit("RequestResponse", {
+                        error: "No RequestId was set. This is required for sockets."
+                    });
+
+                    return;
+                }
+
                 // Check if this req exists
                 if(this.reqStorage[dataObject.wantedRequest] === undefined) {
                     socket.emit("RequestResponse", {
+                        requestId: dataObject.requestId,
                         wantedRequest: dataObject.wantedRequest,
                         isTest: dataObject.isTest === undefined ? false : dataObject.isTest,
                         error: "That request is not defined."
                     });
                 } else {
                     this.fireRequest(dataObject.wantedRequest, dataObject.body, {
+                        requestId: dataObject.requestId,
                         isTest: dataObject.isTest === undefined ? false : dataObject.isTest
                     }).then(responseData => socket.emit("RequestResponse", responseData));
                 }

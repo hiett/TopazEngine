@@ -25,7 +25,8 @@
   "scripts": {
     "build": "babel backend -d dist",
     "start": "babel-watch backend/App.js",
-    "test": "node dist/App.js"
+    "test": "node dist/App.js",
+    "both": "cd frontend && npm run start & npm run start"
   },
   "author": "Scott Hiett",
   "license": "ISC"

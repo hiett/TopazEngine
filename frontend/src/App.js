@@ -5,6 +5,7 @@ import Navigation from "./Navigation";
 import ClientSocketManager, { createClient } from "./ClientSocketManager";
 import "./css/App.css";
 import RequestTester from "./pages/RequestTester";
+import SocketRequestBuilder from "./SocketRequestBuilder";
 
 export default class App extends Component {
     constructor(props) {
@@ -30,9 +31,10 @@ export default class App extends Component {
         socket.on("RequestResponse", data => {
             console.log("Got response from server for request. The data is", data);
 
-            if(data.isTest && window.location.pathname === "/tester") {
-                // Send this to the client
-                RequestTester.setCurrentCode(JSON.stringify(data));
+            // Check if the request pool contains this
+            let reqCallback = SocketRequestBuilder.getRequestPool()[data.requestId];
+            if(reqCallback !== undefined) {
+                reqCallback(data);
             }
         });
     }

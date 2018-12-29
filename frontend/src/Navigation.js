@@ -4,6 +4,7 @@ import LeftBarItem from "./LeftBarItem";
 import { Route } from "react-router-dom";
 import RequestTester from "./pages/RequestTester";
 import About from "./pages/About";
+import ListDatasets from "./pages/ListDatasets";
 
 // Contains more detailed route information
 class RouteWrapper {
@@ -29,7 +30,8 @@ class RouteWrapper {
 let routes = [
     new RouteWrapper("Dashboard", "/", "tachometer-alt", "Home / Dashboard", Dashboard, true),
     new RouteWrapper("About", "/about", "user-circle", "Home / About", About),
-    new RouteWrapper("Tester", "/tester", "vial", "Home / Tester", RequestTester)
+    new RouteWrapper("Tester", "/tester", "vial", "Home / Tester", RequestTester),
+    new RouteWrapper("List Datasets", "/datasets", "list", "Home / Datasets", ListDatasets)
 ];
 
 export default class Navigation {

@@ -2,6 +2,7 @@
     "data": [
         "GetDataset",
         "CreateDataset",
-        "GetRequestInfo"
+        "GetRequestInfo",
+        "GetDatasetCount"
     ]
 }

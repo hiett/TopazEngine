@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import { Button, Input } from "reactstrap";
 import ClientSocketManager from "../ClientSocketManager";
+import SocketRequestBuilder from "../SocketRequestBuilder";
 
 let currentInstance = null;
 
@@ -43,10 +44,15 @@ export default class RequestTester extends Component {
 
                     console.log("Building Object is: ", buildingObject);
                     console.log("Sending request.");
-                    ClientSocketManager.getSocket().emit("MakeRequest", buildingObject);
+                    // ClientSocketManager.getSocket().emit("MakeRequest", buildingObject);
+                    SocketRequestBuilder.makeRequest($(".InputRequestName").val(), buildingObject.body, {isTest: true}).then(data => {
+                        RequestTester.setCurrentCode(JSON.stringify(data));
+                    });
                 }}>Fire Request</Button>
                 <hr />
-                <pre>
+                <pre style={{
+                    whiteSpace: "pre-wrap"
+                }}>
                     {this.state.codeResponse}
                 </pre>
             </div>
